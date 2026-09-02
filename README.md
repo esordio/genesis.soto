@@ -375,7 +375,7 @@
     <div class="section-head"><span class="dot"></span><h2>Investigación</h2></div>
     <p>Aunque solo el 6% de los tutores de mascotas utiliza dietas crudas exclusivas para sus animales de compañía, más del 50% incorpora carne de pollo o sus derivados como snack o complemento en la alimentación de perros y gatos. Al no recibir tratamiento térmico, esta práctica expone a las mascotas a <em class="sp">Escherichia coli</em> patógena aviar (APEC), cuya relación genética con las cepas de <em class="sp">Escherichia coli</em> uropatógenas (UPEC) circulantes en caninos y felinos aún se desconoce.</p>
     <p>Mi investigación de doctorado busca esclarecer ese vínculo, evaluando el rol de las aves de producción como reservorio de patógenos extraintestinales resistentes a antimicrobianos y su capacidad de generar enfermedad entre especies, en el marco de un enfoque One Health que conecta la salud animal, humana y ambiental.</p>
-    <p class="tagline">Actualmente trabajo como asistente de proyectos y coordinadora de tesistas en el laboratorio MicroVet-VacciVet de la Facultad de Ciencias Veterinarias y Pecuarias, Universidad de Chile.</p>
+    <p class="tagline">Actualmente trabajo como asistente de proyectos y coordinadora de tesistas en el laboratorio Microvet de la Facultad de Ciencias Veterinarias y Pecuarias, Universidad de Chile.</p>
   </div>
 </section>
 
@@ -384,7 +384,7 @@
 <section id="especies">
   <div class="wrap">
     <div class="section-head"><span class="dot"></span><h2>Especies de estudio</h2></div>
-    <p class="species-lede">Mi trabajo sigue la ruta que recorre <em class="sp">Escherichia coli</em> entre distintos huéspedes: aves de producción, perros y gatos, comparando las cepas que circulan en cada uno.</p>
+    <p class="species-lede">Mi trabajo sigue la ruta que recorre <em class="sp">Escherichia coli</em> entre distintos huéspedes: aves de producción, perros y gatos, evaluando si existe relación entre las cepas que circulan en cada uno.</p>
     <div class="species-grid">
 
       <div class="species-card">
@@ -419,7 +419,7 @@
       <h3>Oxitetraciclina en el entorno productivo de pollos broiler: efecto sobre la resistencia antimicrobiana y la formación de biopelículas de <em class="sp">Escherichia coli</em></h3>
       <p class="desc">Este trabajo mostró que el tratamiento con oxitetraciclina en pollos broiler favorece la aparición de <em class="sp">E. coli</em> resistente a tetraciclinas en camas, deyecciones, comederos y bebederos, y que esa resistencia se asocia a una mayor formación de biopelículas. La capacidad de formar biopelículas disminuyó a medida que bajaba la concentración del antimicrobiano en el ambiente, lo que sugiere que estas comunidades bacterianas actúan como un mecanismo de persistencia de la resistencia dentro de la producción avícola y un punto crítico para su diseminación hacia la cadena alimentaria.</p>
     </div>
-    <p class="tagline">Quiero seguir contribuyendo a la comunidad, aportando las bases que permitan regularizar en el área animal —sobre todo en animales de compañía— la ingesta de antimicrobianos.</p>
+    <p class="tagline">Quiero seguir contribuyendo a la comunidad, aportando las bases que permitan regularizar la ingesta de antimicrobianos a nivel animal.</p>
   </div>
 </section>
 
@@ -430,7 +430,7 @@
     <div class="section-head"><span class="dot"></span><h2>Contacto</h2></div>
     <div class="contact-grid">
       <div class="contact-info">
-        <p>Para consultas académica sobre mi investigación, escríbeme directamente.</p>
+        <p>Para consultas académicas sobre mi investigación, escríbeme directamente.</p>
         <a class="mail-line" href="mailto:genesis.soto@ug.uchile.cl">genesis.soto@ug.uchile.cl</a>
         <p class="linkedin-line"><a href="https://www.linkedin.com/in/génesis-soto-b24598362" target="_blank" rel="noopener">linkedin.com/in/génesis-soto</a></p>
       </div>
