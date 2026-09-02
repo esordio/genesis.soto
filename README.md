@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --agar: #EAF2F8;
     --ink: #1E2A38;
     --ink-soft: #4C5D70;
     --accent: #4E7FB0;
@@ -19,13 +18,25 @@
     --line: #CBDCEA;
     --paper: #F9FCFE;
     --max: 880px;
+
+    /* progresión de azules, sección a sección */
+    --band1: #EAF2F8;
+    --band2: #D9E9F5;
+    --band3: #C3DCEC;
+    --band4: #AACDE4;
+    --band5: #3B6690;
+    --band6: #23415C;
+    --band-footer: #16283A;
+
+    --band-ink: #F3F8FC;
+    --band-ink-soft: #C7DAEA;
   }
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--agar);
+    background:var(--band1);
     color:var(--ink);
     font-family:'IBM Plex Sans', sans-serif;
     line-height:1.65;
@@ -37,9 +48,7 @@
     color:var(--ink);
     line-height:1.15;
   }
-  em.sp{
-    font-style:italic;
-  }
+  em.sp{ font-style:italic; }
   a{color:var(--accent-deep);}
   a:hover{color:var(--accent);}
   a:focus-visible, button:focus-visible{
@@ -49,10 +58,20 @@
 
   .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
 
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
   /* ---------- header ---------- */
   header.top{
-    padding:26px 0;
+    padding:22px 0;
+    background:var(--paper);
     border-bottom:1px solid var(--line);
+    position:relative;
+    z-index:5;
   }
   header.top .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;}
   .brand{font-family:'Newsreader', serif; font-size:19px; font-weight:500;}
@@ -71,14 +90,32 @@
     color:var(--ink-soft);
     font-size:13px;
     padding:5px 14px;
-    border-radius:20px;
+    border-radius:999px;
     cursor:pointer;
     font-family:'IBM Plex Sans', sans-serif;
   }
   .lang-toggle:hover{border-color:var(--accent-deep); color:var(--accent-deep);}
 
+  /* ---------- bands ---------- */
+  .band{background:var(--band1);}
+  .band-1{background:var(--band1);}
+  .band-2{background:var(--band2);}
+  .band-3{background:var(--band3);}
+  .band-4{background:var(--band4);}
+  .band-5{background:var(--band5);}
+  .band-6{background:var(--band6);}
+
+  .band-dark .section-head h2{color:var(--band-ink);}
+  .band-dark .section-head .dot{background:var(--band-ink);}
+  .band-dark .tagline{color:var(--band-ink); border-left-color:var(--band-ink);}
+  .band-dark .contact-info p{color:var(--band-ink-soft);}
+  .band-dark .contact-action{border-color:var(--band-ink); color:var(--band-ink);}
+  .band-dark .contact-action:hover{background:rgba(255,255,255,0.1); border-color:var(--band-ink); color:var(--band-ink);}
+  .band-dark .qr-box{border-color:rgba(255,255,255,0.35);}
+  .band-dark .qr-box .qr-placeholder-text{color:var(--band-ink-soft);}
+
   /* ---------- hero ---------- */
-  .hero{padding:70px 0 60px;}
+  .hero{padding:64px 0 60px;}
   .hero .wrap{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -91,7 +128,7 @@
     margin:0 0 14px;
   }
   .hero h1{
-    font-size:44px;
+    font-size:46px;
     margin:0 0 14px;
     letter-spacing:-0.01em;
   }
@@ -105,12 +142,14 @@
   .hero .actions{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{
     display:inline-block;
-    padding:11px 20px;
-    border-radius:3px;
+    padding:12px 26px;
+    border-radius:999px;
     text-decoration:none;
     font-size:14.5px;
     border:1px solid var(--ink);
+    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
   }
+  .btn:hover{transform:translateY(-2px);}
   .btn.primary{background:var(--ink); color:var(--paper);}
   .btn.primary:hover{background:var(--accent-deep); border-color:var(--accent-deep); color:var(--paper);}
   .btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
@@ -121,10 +160,11 @@
   .hero-video{
     width:100%;
     max-width:280px;
-    border-radius:16px;
+    border-radius:20px;
     overflow:hidden;
     border:1px solid var(--line);
-    background:var(--agar);
+    background:var(--paper);
+    box-shadow:0 18px 40px rgba(35,65,92,0.14);
   }
   .hero-video video{display:block; width:100%; height:auto;}
   .hero-caption{
@@ -136,8 +176,7 @@
   }
 
   /* ---------- sections ---------- */
-  section{padding:56px 0;}
-  .divider{border:none; border-top:1px solid var(--line); margin:0;}
+  section{padding:64px 0;}
 
   .section-head{
     display:flex;
@@ -150,8 +189,9 @@
     background:var(--accent);
     flex:none;
     transform:translateY(-2px);
+    transition:background .3s ease;
   }
-  .section-head h2{font-size:26px; margin:0;}
+  .section-head h2{font-size:26px; margin:0; transition:color .3s ease;}
 
   .research p{color:var(--ink-soft); font-size:16.5px; text-align:justify; text-justify:inter-word;}
   .research p + p{margin-top:16px;}
@@ -165,6 +205,7 @@
     color:var(--ink);
     text-align:justify;
     text-justify:inter-word;
+    transition:color .3s ease, border-color .3s ease;
   }
 
   /* ---------- species ---------- */
@@ -177,14 +218,17 @@
     gap:44px;
     align-items:center;
   }
+  .inspiration-photo{overflow:hidden; border-radius:16px;}
   .inspiration-photo img{
     display:block;
     width:100%;
     height:360px;
     object-fit:cover;
-    border-radius:12px;
+    border-radius:16px;
     border:1px solid var(--line);
+    transition:transform .5s ease;
   }
+  .inspiration-photo:hover img{transform:scale(1.05);}
   .inspiration-text p{
     color:var(--ink-soft);
     font-size:17px;
@@ -205,6 +249,7 @@
     .inspiration-grid{grid-template-columns:1fr; gap:20px;}
     .inspiration-photo img{height:300px;}
   }
+
   .species-grid{
     display:grid;
     grid-template-columns:repeat(3, minmax(0,1fr));
@@ -213,20 +258,45 @@
   .species-card{
     background:var(--paper);
     border:1px solid var(--line);
-    border-radius:4px;
-    padding:22px 18px 22px;
+    border-radius:16px;
+    overflow:hidden;
     text-align:center;
+    transition:transform .3s ease, box-shadow .3s ease;
   }
+  .species-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 16px 32px rgba(22,40,58,0.16);
+  }
+  .species-card .img-tile{
+    padding:26px 18px 14px;
+  }
+  .species-card:nth-child(1) .img-tile{background:var(--band2);}
+  .species-card:nth-child(2) .img-tile{background:var(--band3);}
+  .species-card:nth-child(3) .img-tile{background:var(--band4);}
   .species-card img{
     display:block;
-    margin:0 auto 14px;
-    height:150px;
+    margin:0 auto;
+    height:140px;
     width:auto;
     max-width:100%;
     object-fit:contain;
   }
-  .species-card h3{font-size:17px; margin:0 0 6px; font-weight:500;}
-  .species-card p{font-size:14px; color:var(--ink-soft); margin:0; max-width:22ch; margin-inline:auto;}
+  .species-card h3{font-size:17px; margin:16px 0 4px; font-weight:500;}
+  .species-card p{font-size:14px; color:var(--ink-soft); margin:0 0 16px; max-width:22ch; margin-inline:auto;}
+  .species-card .card-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    color:var(--accent-deep);
+    text-decoration:none;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:7px 18px;
+    margin-bottom:22px;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .species-card .card-link:hover{border-color:var(--accent-deep); background:var(--band1);}
 
   @media (max-width:600px){
     .species-grid{grid-template-columns:1fr; }
@@ -236,9 +306,10 @@
   .specimen{
     background:var(--paper);
     border:1px solid var(--line);
-    border-radius:4px;
+    border-radius:16px;
     padding:30px 32px;
     position:relative;
+    box-shadow:0 18px 36px rgba(20,38,54,0.16);
   }
   .specimen::before{
     content:"";
@@ -275,21 +346,22 @@
     display:inline-flex;
     align-items:center;
     gap:9px;
-    padding:10px 20px;
+    padding:10px 22px;
     border:1px solid var(--ink);
-    border-radius:3px;
+    border-radius:999px;
     text-decoration:none;
     color:var(--ink);
     font-size:14.5px;
+    transition:transform .2s ease, border-color .2s ease, color .2s ease, background .2s ease;
   }
+  .contact-action:hover{transform:translateY(-2px);}
   .contact-action svg{width:18px; height:18px; flex:none;}
-  .contact-action:hover{border-color:var(--accent-deep); color:var(--accent-deep);}
 
   .qr-box{
     width:168px;
     height:168px;
     border:1.5px dashed var(--line);
-    border-radius:4px;
+    border-radius:12px;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -297,14 +369,15 @@
     gap:8px;
     text-align:center;
     padding:12px;
+    background:var(--paper);
   }
   .qr-box img{width:100%; height:100%; object-fit:contain; display:none;}
   .qr-box .qr-placeholder-text{font-size:12px; color:var(--ink-soft); line-height:1.4;}
 
   /* ---------- footer ---------- */
   footer{
-    padding:34px 0 46px;
-    border-top:1px solid var(--line);
+    padding:34px 0 42px;
+    background:var(--band-footer);
   }
   footer .wrap:first-child{
     display:flex;
@@ -313,11 +386,11 @@
     flex-wrap:wrap;
     gap:10px;
   }
-  footer p{margin:0; font-size:13.5px; color:var(--ink-soft);}
+  footer p{margin:0; font-size:13.5px; color:var(--band-ink-soft);}
   footer .colonies{display:flex; gap:6px;}
-  footer .colonies span{width:7px; height:7px; border-radius:50%; background:var(--accent); opacity:0.7;}
-  footer .colonies span:nth-child(2){background:var(--accent-soft);}
-  footer .colonies span:nth-child(3){background:var(--accent); opacity:0.4;}
+  footer .colonies span{width:7px; height:7px; border-radius:50%; background:var(--accent-soft); opacity:0.8;}
+  footer .colonies span:nth-child(2){background:var(--band-ink); opacity:0.6;}
+  footer .colonies span:nth-child(3){background:var(--accent-soft); opacity:0.4;}
   .footer-top{
     display:flex;
     justify-content:space-between;
@@ -329,13 +402,13 @@
   .ai-disclosure{
     margin:0;
     padding-top:18px;
-    border-top:1px solid var(--line);
+    border-top:1px solid rgba(255,255,255,0.15);
     font-size:12.5px;
-    color:var(--ink-soft);
+    color:var(--band-ink-soft);
     line-height:1.6;
     max-width:74ch;
   }
-  .ai-disclosure strong{color:var(--ink); font-weight:500;}
+  .ai-disclosure strong{color:var(--band-ink); font-weight:500;}
 
   @media (max-width:760px){
     .hero .wrap{grid-template-columns:1fr; text-align:left;}
@@ -364,9 +437,9 @@
   </div>
 </header>
 
-<div class="hero">
+<div class="hero band-1">
   <div class="wrap">
-    <div>
+    <div class="reveal is-visible">
       <p class="hero-eyebrow" data-i18n="hero-eyebrow">One Health · Resistencia antimicrobiana</p>
       <h1>Génesis Lucía<br>Soto Sepúlveda</h1>
       <p class="role" data-i18n="hero-role">Médica Veterinaria · Estudiante de Doctorado en Ciencias Silvoagropecuarias y Veterinarias, Universidad de Chile. Investigo la circulación de <em class="sp">Escherichia coli</em> resistente entre animales de compañía, aves de producción y el ambiente.</p>
@@ -375,7 +448,7 @@
         <a class="btn ghost" href="#investigacion" data-i18n="btn-ghost">Ver investigación</a>
       </div>
     </div>
-    <div class="hero-media">
+    <div class="hero-media reveal is-visible">
       <div class="hero-video">
         <video src="assets/siembra.mp4" poster="assets/siembra-poster.jpg" autoplay muted loop playsinline aria-label="Animación de la siembra por agotamiento en cuatro cuadrantes sobre una placa de cultivo"></video>
       </div>
@@ -384,12 +457,10 @@
   </div>
 </div>
 
-<hr class="divider">
-
-<section id="inspiracion">
+<section id="inspiracion" class="band-2">
   <div class="wrap">
-    <div class="section-head"><span class="dot"></span><h2 data-i18n="inspiracion-h2">Fuente de inspiración</h2></div>
-    <div class="inspiration-grid">
+    <div class="section-head reveal"><span class="dot"></span><h2 data-i18n="inspiracion-h2">Fuente de inspiración</h2></div>
+    <div class="inspiration-grid reveal">
       <div class="inspiration-photo">
         <img src="assets/chubie.png" alt="Chubie, la perrita de Génesis" loading="lazy">
       </div>
@@ -401,67 +472,64 @@
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="investigacion" class="research">
+<section id="investigacion" class="research band-3">
   <div class="wrap">
-    <div class="section-head"><span class="dot"></span><h2 data-i18n="investigacion-h2">Investigación</h2></div>
-    <p data-i18n="investigacion-p1">Aunque solo el 6% de los tutores de mascotas utiliza dietas crudas exclusivas para sus animales de compañía, más del 50% incorpora carne de pollo o sus derivados como snack o complemento en la alimentación de perros y gatos. Al no recibir tratamiento térmico, esta práctica expone a las mascotas a <em class="sp">Escherichia coli</em> patógena aviar (APEC), cuya relación genética con las cepas de <em class="sp">Escherichia coli</em> uropatógenas (UPEC) circulantes en caninos y felinos aún se desconoce.</p>
-    <p data-i18n="investigacion-p2">Mi investigación de doctorado busca esclarecer ese vínculo, evaluando el rol de las aves de producción como reservorio de patógenos extraintestinales resistentes a antimicrobianos y su capacidad de generar enfermedad entre especies, en el marco de un enfoque One Health que conecta la salud animal, humana y ambiental.</p>
-    <p class="tagline" data-i18n="investigacion-tagline">Actualmente trabajo como asistente de proyectos y coordinadora de tesistas en el laboratorio MicroVet de la Facultad de Ciencias Veterinarias y Pecuarias, Universidad de Chile.</p>
+    <div class="section-head reveal"><span class="dot"></span><h2 data-i18n="investigacion-h2">Investigación</h2></div>
+    <div class="reveal">
+      <p data-i18n="investigacion-p1">Aunque solo el 6% de los tutores de mascotas utiliza dietas crudas exclusivas para sus animales de compañía, más del 50% incorpora carne de pollo o sus derivados como snack o complemento en la alimentación de perros y gatos. Al no recibir tratamiento térmico, esta práctica expone a las mascotas a <em class="sp">Escherichia coli</em> patógena aviar (APEC), cuya relación genética con las cepas de <em class="sp">Escherichia coli</em> uropatógenas (UPEC) circulantes en caninos y felinos aún se desconoce.</p>
+      <p data-i18n="investigacion-p2">Mi investigación de doctorado busca esclarecer ese vínculo, evaluando el rol de las aves de producción como reservorio de patógenos extraintestinales resistentes a antimicrobianos y su capacidad de generar enfermedad entre especies, en el marco de un enfoque One Health que conecta la salud animal, humana y ambiental.</p>
+      <p class="tagline" data-i18n="investigacion-tagline">Actualmente trabajo como asistente de proyectos y coordinadora de tesistas en el laboratorio MicroVet de la Facultad de Ciencias Veterinarias y Pecuarias, Universidad de Chile.</p>
+    </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="especies">
+<section id="especies" class="band-4">
   <div class="wrap">
-    <div class="section-head"><span class="dot"></span><h2 data-i18n="especies-h2">Especies de estudio</h2></div>
-    <p class="species-lede" data-i18n="especies-lede">Mi trabajo sigue la ruta que recorre <em class="sp">Escherichia coli</em> entre distintos huéspedes: aves de producción, perros y gatos, evaluando la relación entre cepas que circulan en distintas especies bajo un enfoque One Health.</p>
+    <div class="section-head reveal"><span class="dot"></span><h2 data-i18n="especies-h2">Especies de estudio</h2></div>
+    <p class="species-lede reveal" data-i18n="especies-lede">Mi trabajo sigue la ruta que recorre <em class="sp">Escherichia coli</em> entre distintos huéspedes: aves de producción, perros y gatos, evaluando la relación entre cepas que circulan en distintas especies bajo un enfoque One Health.</p>
     <div class="species-grid">
 
-      <div class="species-card">
-        <img src="assets/chick.png" alt="Pollo broiler" loading="lazy">
+      <div class="species-card reveal">
+        <div class="img-tile"><img src="assets/chick.png" alt="Pollo broiler" loading="lazy"></div>
         <h3 data-i18n="especies-card1-h3">Aves de producción</h3>
         <p data-i18n="especies-card1-p">APEC en pollos broiler</p>
+        <a class="card-link" href="#investigacion" data-i18n="especies-link">Ver investigación</a>
       </div>
 
-      <div class="species-card">
-        <img src="assets/puppy.png" alt="Perro cachorro" loading="lazy">
+      <div class="species-card reveal">
+        <div class="img-tile"><img src="assets/puppy.png" alt="Perro cachorro" loading="lazy"></div>
         <h3 data-i18n="especies-card2-h3">Caninos</h3>
         <p data-i18n="especies-card2-p">UPEC en perros</p>
+        <a class="card-link" href="#investigacion" data-i18n="especies-link">Ver investigación</a>
       </div>
 
-      <div class="species-card">
-        <img src="assets/kitten.png" alt="Gatito" loading="lazy">
+      <div class="species-card reveal">
+        <div class="img-tile"><img src="assets/kitten.png" alt="Gatito" loading="lazy"></div>
         <h3 data-i18n="especies-card3-h3">Felinos</h3>
         <p data-i18n="especies-card3-p">UPEC en gatos</p>
+        <a class="card-link" href="#investigacion" data-i18n="especies-link">Ver investigación</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="contribucion">
+<section id="contribucion" class="band-5 band-dark">
   <div class="wrap">
-    <div class="section-head"><span class="dot"></span><h2 data-i18n="contribucion-h2">Contribución a la comunidad</h2></div>
-    <div class="specimen">
+    <div class="section-head reveal"><span class="dot"></span><h2 data-i18n="contribucion-h2">Contribución a la comunidad</h2></div>
+    <div class="specimen reveal">
       <p class="label-tag" data-i18n="contribucion-label">Memoria de título · 2025</p>
       <h3 data-i18n="contribucion-h3">Oxitetraciclina en el entorno productivo de pollos broiler: efecto sobre la resistencia antimicrobiana y la formación de biopelículas de <em class="sp">Escherichia coli</em></h3>
       <p class="desc" data-i18n="contribucion-desc">Este trabajo mostró que el tratamiento con oxitetraciclina en pollos broiler favorece la aparición de <em class="sp">E. coli</em> resistente a tetraciclinas en camas, deyecciones, comederos y bebederos, y que esa resistencia se asocia a una mayor formación de biopelículas. La capacidad de formar biopelículas disminuyó a medida que bajaba la concentración del antimicrobiano en el ambiente, lo que sugiere que estas comunidades bacterianas actúan como un mecanismo de persistencia de la resistencia dentro de la producción avícola y un punto crítico para su diseminación hacia la cadena alimentaria.</p>
     </div>
-    <p class="tagline" data-i18n="contribucion-tagline">Quiero seguir contribuyendo a la comunidad, aportando las bases que permitan mejorar la regularización de la ingesta de antimicrobianos en el área animal.</p>
+    <p class="tagline reveal" data-i18n="contribucion-tagline">Quiero seguir contribuyendo a la comunidad, aportando las bases que permitan mejorar la regularización de la ingesta de antimicrobianos en el área animal.</p>
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="contacto">
+<section id="contacto" class="band-6 band-dark">
   <div class="wrap">
-    <div class="section-head"><span class="dot"></span><h2 data-i18n="contacto-h2">Contacto</h2></div>
-    <div class="contact-stack">
+    <div class="section-head reveal"><span class="dot"></span><h2 data-i18n="contacto-h2">Contacto</h2></div>
+    <div class="contact-stack reveal">
       <div class="contact-info">
         <p data-i18n="contacto-p">Para consultas académicas, colaboraciones o preguntas sobre mi investigación, escríbeme directamente.</p>
         <div class="contact-actions">
@@ -538,6 +606,7 @@
     "especies-card2-p": { es: "UPEC en perros", en: "UPEC in dogs" },
     "especies-card3-h3": { es: "Felinos", en: "Cats" },
     "especies-card3-p": { es: "UPEC en gatos", en: "UPEC in cats" },
+    "especies-link": { es: "Ver investigación", en: "See research" },
     "contribucion-h2": { es: "Contribución a la comunidad", en: "Contribution to the community" },
     "contribucion-label": { es: "Memoria de título · 2025", en: "Undergraduate thesis · 2025" },
     "contribucion-h3": {
@@ -600,6 +669,23 @@
       current = current === 'es' ? 'en' : 'es';
       setLang(current);
     });
+  }
+
+  /* scroll reveal */
+  var revealEls = document.querySelectorAll('.reveal:not(.is-visible)');
+  if ('IntersectionObserver' in window && revealEls.length){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach ? revealEls.forEach(function(el){ obs.observe(el); }) :
+      Array.prototype.forEach.call(revealEls, function(el){ obs.observe(el); });
+  } else {
+    Array.prototype.forEach.call(revealEls, function(el){ el.classList.add('is-visible'); });
   }
 })();
 </script>
