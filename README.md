@@ -390,7 +390,7 @@
     <div class="section-head"><span class="dot"></span><h2 data-i18n="inspiracion-h2">Fuente de inspiración</h2></div>
     <div class="inspiration-grid">
       <div class="inspiration-photo">
-        <img src="assets/chubie.jpg" alt="Chubie, la perrita de Génesis" loading="lazy">
+        <img src="assets/chubie.png" alt="Chubie, la perrita de Génesis" loading="lazy">
       </div>
       <div class="inspiration-text">
         <p data-i18n="inspiracion-p">El inicio de esta carrera comenzó el 2018, al querer entrar a estudiar veterinaria para saber cómo cuidar a mi perrita Chubie. Ahora, ocho años después, creo que soy capaz de hacer algo más grande para cuidarla tanto a ella como a otros animales.</p>
