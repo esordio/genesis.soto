@@ -27,6 +27,27 @@
   @keyframes gene-travel{0%{opacity:0;transform:translateX(0)}12%{opacity:1}44%{opacity:1;transform:translateX(var(--gx,120px))}56%{opacity:0;transform:translateX(var(--gx,120px))}57%{transform:translateX(var(--gx,120px))}62%{opacity:1}94%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translateX(0)}}
   @keyframes ast-pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.12);opacity:1}}
 
+  /* Interacciones en CSS puro: funcionan igual al publicar en GitHub Pages */
+  header nav a{transition:color .2s ease;}
+  header nav a:hover{color:#152B2E !important;}
+  [data-lang-btn]{transition:border-color .2s ease,color .2s ease,background .2s ease;}
+  [data-lang-btn]:hover{border-color:#2C6E74 !important;color:#2C6E74 !important;background:rgba(44,110,116,0.06) !important;}
+  a[data-i18n="btn-primary"]:hover{background:#2C6E74 !important;border-color:#2C6E74 !important;}
+  a[data-i18n="btn-ghost"]:hover{border-color:#2C6E74 !important;color:#2C6E74 !important;}
+  #especies article{transition:box-shadow .35s ease,transform .35s ease;}
+  #especies article:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(21,43,46,0.10);}
+  a[data-i18n="especies-link"]{transition:color .2s ease,border-color .2s ease;}
+  a[data-i18n="especies-link"]:hover{color:#152B2E !important;border-color:#2C6E74 !important;}
+  #inspiracion img{transition:transform .7s cubic-bezier(.2,.7,.2,1);}
+  #inspiracion img:hover{transform:scale(1.04);}
+  #contacto a[href^="mailto"],#contacto a[href*="linkedin"]{transition:background .2s ease,border-color .2s ease;}
+  #contacto a[href^="mailto"]:hover,#contacto a[href*="linkedin"]:hover{background:rgba(255,255,255,0.10) !important;border-color:#EBF2F1 !important;}
+  @media (hover:none){
+    #especies article:hover{transform:none;box-shadow:none;}
+    #inspiracion img:hover{transform:none;}
+  }
+  #especies article:active{transform:translateY(-2px);box-shadow:0 10px 22px rgba(21,43,46,0.10);}
+
   @media (max-width:900px){
     [data-m="hero"],[data-m="stack"],[data-m="cards"],[data-m="genes"],[data-m="proj"],[data-m="label"]{grid-template-columns:1fr !important;}
     [data-m="hero"]{padding:44px 22px 56px !important;gap:36px !important;}
@@ -74,13 +95,13 @@
       </div>
       <div style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;">
         <nav style="display:flex;gap:24px;flex-wrap:wrap;">
-          <a href="#inspiracion" data-i18n="nav-inspiracion" style="text-decoration:none;color:#4F6266;font-size:14px;" style-hover="color:#152B2E;">Inspiración</a>
-          <a href="#investigacion" data-i18n="nav-investigacion" style="text-decoration:none;color:#4F6266;font-size:14px;" style-hover="color:#152B2E;">Investigación</a>
-          <a href="#especies" data-i18n="nav-especies" style="text-decoration:none;color:#4F6266;font-size:14px;" style-hover="color:#152B2E;">Especies</a>
-          <a href="#contribucion" data-i18n="nav-contribucion" style="text-decoration:none;color:#4F6266;font-size:14px;" style-hover="color:#152B2E;">Contribución</a>
-          <a href="#contacto" data-i18n="nav-contacto" style="text-decoration:none;color:#4F6266;font-size:14px;" style-hover="color:#152B2E;">Contacto</a>
+          <a href="#inspiracion" data-i18n="nav-inspiracion" style="text-decoration:none;color:#4F6266;font-size:14px;">Inspiración</a>
+          <a href="#investigacion" data-i18n="nav-investigacion" style="text-decoration:none;color:#4F6266;font-size:14px;">Investigación</a>
+          <a href="#especies" data-i18n="nav-especies" style="text-decoration:none;color:#4F6266;font-size:14px;">Especies</a>
+          <a href="#contribucion" data-i18n="nav-contribucion" style="text-decoration:none;color:#4F6266;font-size:14px;">Contribución</a>
+          <a href="#contacto" data-i18n="nav-contacto" style="text-decoration:none;color:#4F6266;font-size:14px;">Contacto</a>
         </nav>
-        <button type="button" onClick="{{ toggleLang }}" data-lang-btn aria-label="Switch language / Cambiar idioma" style="border:1px solid #CBDCD8;background:transparent;color:#4F6266;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;padding:6px 13px;border-radius:2px;cursor:pointer;" style-hover="border-color:#2C6E74;color:#2C6E74;">EN</button>
+        <button type="button" onClick="{{ toggleLang }}" data-lang-btn aria-label="Switch language / Cambiar idioma" style="border:1px solid #CBDCD8;background:transparent;color:#4F6266;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;padding:6px 13px;border-radius:2px;cursor:pointer;">EN</button>
       </div>
     </div>
   </header>
@@ -92,8 +113,8 @@
       <div style="width:56px;height:1px;background:#2C6E74;margin:0 0 24px;"></div>
       <p data-i18n="hero-role" style="font-size:17px;color:#4F6266;margin:0 0 34px;max-width:46ch;text-wrap:pretty;">Médica Veterinaria · Estudiante de Doctorado en Ciencias Silvoagropecuarias y Veterinarias, Universidad de Chile. Investigo la circulación de <em style="font-style:italic;">Escherichia coli</em> resistente entre animales de compañía, aves de producción y el ambiente.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="#contacto" data-i18n="btn-primary" style="display:inline-block;padding:12px 26px;background:#152B2E;color:#EBF2F1;text-decoration:none;font-size:14.5px;border:1px solid #152B2E;border-radius:2px;transition:background .2s ease,border-color .2s ease;" style-hover="background:#2C6E74;border-color:#2C6E74;">Escríbeme</a>
-        <a href="#investigacion" data-i18n="btn-ghost" style="display:inline-block;padding:12px 26px;background:transparent;color:#152B2E;text-decoration:none;font-size:14.5px;border:1px solid #BFD5D1;border-radius:2px;transition:border-color .2s ease,color .2s ease;" style-hover="border-color:#2C6E74;color:#2C6E74;">Ver investigación</a>
+        <a href="#contacto" data-i18n="btn-primary" style="display:inline-block;padding:12px 26px;background:#152B2E;color:#EBF2F1;text-decoration:none;font-size:14.5px;border:1px solid #152B2E;border-radius:2px;transition:background .2s ease,border-color .2s ease;">Escríbeme</a>
+        <a href="#investigacion" data-i18n="btn-ghost" style="display:inline-block;padding:12px 26px;background:transparent;color:#152B2E;text-decoration:none;font-size:14.5px;border:1px solid #BFD5D1;border-radius:2px;transition:border-color .2s ease,color .2s ease;">Ver investigación</a>
       </div>
     </div>
 
@@ -154,7 +175,7 @@
       </div>
       <div data-m="stack" data-reveal style="display:grid;grid-template-columns:0.78fr 1.22fr;gap:52px;align-items:center;">
         <div style="position:relative;overflow:hidden;border-radius:2px;border:1px solid #D6E4E1;background:#EEF1F1;">
-          <img src="assets/chubie.png" alt="Chubie, la perrita de Génesis" loading="lazy" onError="{{ imgFallback }}" style="display:block;width:100%;height:380px;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.04);">
+          <img src="assets/chubie.png" alt="Chubie, la perrita de Génesis" loading="lazy" onError="{{ imgFallback }}" style="display:block;width:100%;height:380px;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);">
           <div data-ph style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#E7EBEC 0 8px,#EEF1F1 8px 16px);font-family:'JetBrains Mono',monospace;font-size:11px;color:#87A0A0;text-align:center;padding:16px;">assets/chubie.png</div>
         </div>
         <div>
@@ -224,7 +245,7 @@
       <p data-reveal data-i18n="especies-lede" style="margin:0 0 42px;font-size:16.5px;color:#4F6266;max-width:74ch;text-wrap:pretty;">Mi trabajo sigue la ruta que recorre <em style="font-style:italic;">Escherichia coli</em> entre distintos huéspedes: aves de producción, perros y gatos, evaluando la relación entre cepas que circulan en distintas especies bajo un enfoque One Health.</p>
       <div data-m="cards" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;">
 
-        <article data-reveal style="border:1px solid #D6E4E1;border-radius:2px;background:#FFFFFF;overflow:hidden;transition:box-shadow .35s ease,transform .35s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 38px rgba(20,32,43,0.08);">
+        <article data-reveal style="border:1px solid #D6E4E1;border-radius:2px;background:#FFFFFF;overflow:hidden;transition:box-shadow .35s ease,transform .35s ease;">
           <div style="position:relative;background:#E3EFE7;padding:28px 20px;display:flex;align-items:center;justify-content:center;min-height:196px;">
             <img src="assets/chick.png" alt="Pollo broiler" loading="lazy" onError="{{ imgFallback }}" style="display:block;height:150px;width:auto;max-width:100%;object-fit:contain;">
             <div data-ph style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#E7EBEC 0 8px,#E3EFE7 8px 16px);font-family:'JetBrains Mono',monospace;font-size:11px;color:#87A0A0;">assets/chick.png</div>
@@ -233,11 +254,11 @@
             <p style="margin:0 0 8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#87A0A0;" data-i18n="tag-reservorio">Reservorio</p>
             <h3 data-i18n="especies-card1-h3" style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:23px;margin:0 0 6px;">Aves de producción</h3>
             <p data-i18n="especies-card1-p" style="margin:0 0 16px;font-size:14.5px;color:#4F6266;">APEC en pollos broiler</p>
-            <a href="#investigacion" data-i18n="especies-link" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2C6E74;text-decoration:none;border-bottom:1px solid #BFD5D1;padding-bottom:2px;" style-hover="border-color:#2C6E74;">Ver investigación</a>
+            <a href="#investigacion" data-i18n="especies-link" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2C6E74;text-decoration:none;border-bottom:1px solid #BFD5D1;padding-bottom:2px;">Ver investigación</a>
           </div>
         </article>
 
-        <article data-reveal style="border:1px solid #D6E4E1;border-radius:2px;background:#FFFFFF;overflow:hidden;transition:box-shadow .35s ease,transform .35s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 38px rgba(20,32,43,0.08);">
+        <article data-reveal style="border:1px solid #D6E4E1;border-radius:2px;background:#FFFFFF;overflow:hidden;transition:box-shadow .35s ease,transform .35s ease;">
           <div style="position:relative;background:#E2EDF2;padding:28px 20px;display:flex;align-items:center;justify-content:center;min-height:196px;">
             <img src="assets/puppy.png" alt="Perro cachorro" loading="lazy" onError="{{ imgFallback }}" style="display:block;height:150px;width:auto;max-width:100%;object-fit:contain;">
             <div data-ph style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#E7EBEC 0 8px,#E2EDF2 8px 16px);font-family:'JetBrains Mono',monospace;font-size:11px;color:#87A0A0;">assets/puppy.png</div>
@@ -246,11 +267,11 @@
             <p style="margin:0 0 8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#87A0A0;" data-i18n="tag-huesped">Huésped</p>
             <h3 data-i18n="especies-card2-h3" style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:23px;margin:0 0 6px;">Caninos</h3>
             <p data-i18n="especies-card2-p" style="margin:0 0 16px;font-size:14.5px;color:#4F6266;">UPEC en perros</p>
-            <a href="#investigacion" data-i18n="especies-link" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2C6E74;text-decoration:none;border-bottom:1px solid #BFD5D1;padding-bottom:2px;" style-hover="border-color:#2C6E74;">Ver investigación</a>
+            <a href="#investigacion" data-i18n="especies-link" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2C6E74;text-decoration:none;border-bottom:1px solid #BFD5D1;padding-bottom:2px;">Ver investigación</a>
           </div>
         </article>
 
-        <article data-reveal style="border:1px solid #D6E4E1;border-radius:2px;background:#FFFFFF;overflow:hidden;transition:box-shadow .35s ease,transform .35s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 38px rgba(20,32,43,0.08);">
+        <article data-reveal style="border:1px solid #D6E4E1;border-radius:2px;background:#FFFFFF;overflow:hidden;transition:box-shadow .35s ease,transform .35s ease;">
           <div style="position:relative;background:#E9EDF3;padding:28px 20px;display:flex;align-items:center;justify-content:center;min-height:196px;">
             <img src="assets/kitten.png" alt="Gatito" loading="lazy" onError="{{ imgFallback }}" style="display:block;height:150px;width:auto;max-width:100%;object-fit:contain;">
             <div data-ph style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#E7EBEC 0 8px,#E9EDF3 8px 16px);font-family:'JetBrains Mono',monospace;font-size:11px;color:#87A0A0;">assets/kitten.png</div>
@@ -259,7 +280,7 @@
             <p style="margin:0 0 8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#87A0A0;" data-i18n="tag-huesped">Huésped</p>
             <h3 data-i18n="especies-card3-h3" style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:23px;margin:0 0 6px;">Felinos</h3>
             <p data-i18n="especies-card3-p" style="margin:0 0 16px;font-size:14.5px;color:#4F6266;">UPEC en gatos</p>
-            <a href="#investigacion" data-i18n="especies-link" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2C6E74;text-decoration:none;border-bottom:1px solid #BFD5D1;padding-bottom:2px;" style-hover="border-color:#2C6E74;">Ver investigación</a>
+            <a href="#investigacion" data-i18n="especies-link" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2C6E74;text-decoration:none;border-bottom:1px solid #BFD5D1;padding-bottom:2px;">Ver investigación</a>
           </div>
         </article>
 
@@ -310,11 +331,11 @@
         <div>
           <p data-i18n="contacto-p" style="margin:0 0 26px;font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;line-height:1.35;color:#E7F1EF;max-width:34ch;text-wrap:pretty;">Para consultas académicas, colaboraciones o preguntas sobre mi investigación, escríbeme directamente.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <a href="mailto:genesis.soto@ug.uchile.cl" aria-label="Enviarme un correo" style="display:inline-flex;align-items:center;gap:10px;padding:11px 22px;border:1px solid rgba(255,255,255,0.3);border-radius:2px;text-decoration:none;color:#EBF2F1;font-size:14.5px;transition:background .2s ease,border-color .2s ease;" style-hover="background:rgba(255,255,255,0.08);border-color:#EBF2F1;">
+            <a href="mailto:genesis.soto@ug.uchile.cl" aria-label="Enviarme un correo" style="display:inline-flex;align-items:center;gap:10px;padding:11px 22px;border:1px solid rgba(255,255,255,0.3);border-radius:2px;text-decoration:none;color:#EBF2F1;font-size:14.5px;transition:background .2s ease,border-color .2s ease;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
               <span data-i18n="contacto-correo">Correo</span>
             </a>
-            <a href="https://www.linkedin.com/in/génesis-soto-b24598362" target="_blank" rel="noopener" aria-label="Ver mi perfil de LinkedIn" style="display:inline-flex;align-items:center;gap:10px;padding:11px 22px;border:1px solid rgba(255,255,255,0.3);border-radius:2px;text-decoration:none;color:#EBF2F1;font-size:14.5px;transition:background .2s ease,border-color .2s ease;" style-hover="background:rgba(255,255,255,0.08);border-color:#EBF2F1;">
+            <a href="https://www.linkedin.com/in/génesis-soto-b24598362" target="_blank" rel="noopener" aria-label="Ver mi perfil de LinkedIn" style="display:inline-flex;align-items:center;gap:10px;padding:11px 22px;border:1px solid rgba(255,255,255,0.3);border-radius:2px;text-decoration:none;color:#EBF2F1;font-size:14.5px;transition:background .2s ease,border-color .2s ease;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><rect x="3" y="3" width="18" height="18" rx="4"></rect><circle cx="9" cy="9.5" r="1.6"></circle><path d="M6.5 17v-4.5"></path><path d="M9 17v-3.2"></path><path d="M13 17v-3.6c0-1.2.9-2 2-2s2 .8 2 2V17"></path></svg>
               <span>LinkedIn</span>
             </a>
