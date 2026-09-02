@@ -111,7 +111,7 @@
     border-radius:16px;
     overflow:hidden;
     border:1px solid var(--line);
-    background:#0B0F14;
+    background:var(--agar);
   }
   .hero-video video{display:block; width:100%; height:auto;}
   .hero-caption{
@@ -236,17 +236,7 @@
     margin:0 0 14px;
     max-width:38ch;
   }
-  .specimen p.desc{color:var(--ink-soft); max-width:62ch; margin:0 0 20px; font-size:16px;}
-  .fields{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0,1fr));
-    gap:14px 28px;
-    border-top:1px solid var(--line);
-    padding-top:18px;
-    font-size:14.5px;
-  }
-  .fields dt{color:var(--ink-soft); margin:0 0 3px;}
-  .fields dd{margin:0; color:var(--ink);}
+  .specimen p.desc{color:var(--ink-soft); max-width:62ch; margin:0; font-size:16px;}
 
   /* ---------- contact / qr ---------- */
   .contact-grid{
@@ -256,6 +246,15 @@
     align-items:center;
   }
   .contact-info p{color:var(--ink-soft); max-width:42ch; margin:0 0 18px;}
+  .linkedin-line{margin:14px 0 0 !important;}
+  .linkedin-line a{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .linkedin-line a:hover{color:var(--accent-deep); border-color:var(--accent);}
   .mail-line{
     display:inline-flex;
     align-items:center;
@@ -290,7 +289,7 @@
     padding:34px 0 46px;
     border-top:1px solid var(--line);
   }
-  footer .wrap{
+  footer .wrap:first-child{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -302,13 +301,30 @@
   footer .colonies span{width:7px; height:7px; border-radius:50%; background:var(--accent); opacity:0.7;}
   footer .colonies span:nth-child(2){background:var(--accent-soft);}
   footer .colonies span:nth-child(3){background:var(--accent); opacity:0.4;}
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .ai-disclosure{
+    margin:0;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    max-width:74ch;
+  }
+  .ai-disclosure strong{color:var(--ink); font-weight:500;}
 
   @media (max-width:760px){
     .hero .wrap{grid-template-columns:1fr; text-align:left;}
     .hero-media{order:-1; margin-bottom:8px; align-items:flex-start;}
     .hero-video{margin-inline:0;}
     .hero h1{font-size:33px;}
-    .fields{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr; justify-items:start;}
     nav a{margin-left:14px;}
   }
@@ -402,12 +418,6 @@
       <p class="label-tag">Memoria de título · 2025</p>
       <h3>Oxitetraciclina en el entorno productivo de pollos broiler: efecto sobre la resistencia antimicrobiana y la formación de biopelículas de <em class="sp">Escherichia coli</em></h3>
       <p class="desc">Este trabajo mostró que el tratamiento con oxitetraciclina en pollos broiler favorece la aparición de <em class="sp">E. coli</em> resistente a tetraciclinas en camas, deyecciones, comederos y bebederos, y que esa resistencia se asocia a una mayor formación de biopelículas. La capacidad de formar biopelículas disminuyó a medida que bajaba la concentración del antimicrobiano en el ambiente, lo que sugiere que estas comunidades bacterianas actúan como un mecanismo de persistencia de la resistencia dentro de la producción avícola y un punto crítico para su diseminación hacia la cadena alimentaria.</p>
-      <dl class="fields">
-        <div><dt>Financiamiento</dt><dd>Proyecto FONDECYT Regular N.º 1220520</dd></div>
-        <div><dt>Profesora guía</dt><dd>Javiera Cornejo Kelly</dd></div>
-        <div><dt>Institución</dt><dd>Universidad de Chile, Facultad de Ciencias Veterinarias y Pecuarias</dd></div>
-        <div><dt>Palabras clave</dt><dd><em class="sp">Escherichia coli</em>, resistencia antimicrobiana, biopelículas, producción avícola</dd></div>
-      </dl>
     </div>
     <p class="tagline">Quiero seguir contribuyendo a la comunidad, aportando las bases que permitan regularizar en el área animal —sobre todo en animales de compañía— la ingesta de antimicrobianos.</p>
   </div>
@@ -420,8 +430,9 @@
     <div class="section-head"><span class="dot"></span><h2>Contacto</h2></div>
     <div class="contact-grid">
       <div class="contact-info">
-        <p>Para consultas académicas, colaboraciones o preguntas sobre mi investigación, escríbeme directamente.</p>
+        <p>Para consultas académica sobre mi investigación, escríbeme directamente.</p>
         <a class="mail-line" href="mailto:genesis.soto@ug.uchile.cl">genesis.soto@ug.uchile.cl</a>
+        <p class="linkedin-line"><a href="https://www.linkedin.com/in/génesis-soto-b24598362" target="_blank" rel="noopener">linkedin.com/in/génesis-soto</a></p>
       </div>
       <div class="qr-box">
         <img src="assets/qr.png" alt="Código QR de contacto" onload="this.style.display='block'; this.nextElementSibling.style.display='none';" onerror="this.style.display='none';">
@@ -432,9 +443,12 @@
 </section>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap footer-top">
     <p>Génesis Soto Sepúlveda · Santiago, Chile</p>
     <div class="colonies" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+  <div class="wrap">
+    <p class="ai-disclosure"><strong>Declaración de uso de IA:</strong> utilicé Claude [Sonnet 5, el 1 de septiembre de 2026] para generar la página y animaciones, basado en texto incorporado a la herramienta, para finalmente aceptar el contenido que reflejaba mis ideas. Revisé y verifiqué que el contenido fuera mi voz y mis ideas; la responsabilidad final es mía.</p>
   </div>
 </footer>
 
