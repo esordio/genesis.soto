@@ -445,7 +445,10 @@
     </div>
     <div class="hero-media reveal is-visible">
       <div class="hero-video">
-        <video src="assets/siembra.mp4" poster="assets/siembra-poster.jpg" autoplay muted loop playsinline aria-label="Animación de la siembra por agotamiento en cuatro cuadrantes sobre una placa de cultivo"></video>
+        <video autoplay muted loop playsinline aria-label="Animación de la siembra por agotamiento en cuatro cuadrantes sobre una placa de cultivo" poster="assets/siembra-poster.jpg">
+          <source src="assets/siembra.webm" type="video/webm">
+          <source src="assets/siembra.mp4" type="video/mp4">
+        </video>
       </div>
       <p class="hero-caption" data-i18n="hero-caption">Siembra por agotamiento en 4 cuadrantes</p>
     </div>
