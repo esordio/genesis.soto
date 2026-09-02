@@ -180,7 +180,7 @@
   .inspiration-photo img{
     display:block;
     width:100%;
-    max-height:360px;
+    height:360px;
     object-fit:cover;
     border-radius:12px;
     border:1px solid var(--line);
@@ -203,6 +203,7 @@
 
   @media (max-width:760px){
     .inspiration-grid{grid-template-columns:1fr; gap:20px;}
+    .inspiration-photo img{height:300px;}
   }
   .species-grid{
     display:grid;
