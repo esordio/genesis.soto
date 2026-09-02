@@ -160,11 +160,6 @@
   .hero-video{
     width:100%;
     max-width:280px;
-    border-radius:20px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    background:var(--paper);
-    box-shadow:0 18px 40px rgba(35,65,92,0.14);
   }
   .hero-video video{display:block; width:100%; height:auto;}
   .hero-caption{
